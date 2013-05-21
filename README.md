@@ -35,7 +35,10 @@ Once the job has finished sidekiq will stop retriying and will send a callback t
 * results: if is "true" will fetch the results from treasure data and it will pass those results to your method as a parameter. Be aware that exceptionally large results might impact your performance.
 
 ###Internals
-Querier objects are designed to query treasure data api asynchronously. This gem uses [Sidekiq] (https://github.com/mperham/sidekiq) so make sure your app plays nice with that.
+Querier objects are designed to query treasure data api asynchronously. 
+
+This gem uses [Sidekiq] (https://github.com/mperham/sidekiq) so make sure your app plays nice with that.
+
 Also it uses [td gem](https://rubygems.org/gems/td)
 
 ### Contributing
