@@ -16,7 +16,6 @@ Gem::Specification.new do |gem|
   gem.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.require_paths = ['lib']
 
-  gem.add_dependency "sidekiq", "~> 2.12.0"
-  gem.add_dependency "td", "~> 0.10.77"
-  gem.add_development_dependency "rake", ">= 0.9.2"
+  gem.add_dependency "sidekiq", ">= 2.7.2"
+  gem.add_dependency "td", ">= 0.10.77"
 end

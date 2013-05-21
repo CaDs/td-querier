@@ -1,0 +1,63 @@
+PATH
+  remote: .
+  specs:
+    td-querier (0.0.2)
+      sidekiq (>= 2.7.2)
+      td (>= 0.10.77)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    celluloid (0.14.0)
+      timers (>= 1.0.0)
+    connection_pool (1.0.0)
+    diff-lcs (1.2.4)
+    fluent-logger (0.4.5)
+      msgpack (= 0.4.7)
+      yajl-ruby (~> 1.0)
+    hirb (0.7.1)
+    json (1.7.7)
+    msgpack (0.4.7)
+    parallel (0.5.21)
+    redis (3.0.4)
+    redis-namespace (1.3.0)
+      redis (~> 3.0.0)
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.1)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.1)
+    rubyzip (0.9.9)
+    sidekiq (2.12.0)
+      celluloid (>= 0.14.0)
+      connection_pool (>= 1.0.0)
+      json
+      redis (>= 3.0)
+      redis-namespace
+    td (0.10.77)
+      hirb (>= 0.4.5)
+      msgpack (~> 0.4.4)
+      parallel (~> 0.5.19)
+      rubyzip (~> 0.9.9)
+      td-client (~> 0.8.49)
+      td-logger (~> 0.3.16)
+      yajl-ruby (~> 1.1.0)
+    td-client (0.8.49)
+      json (~> 1.7.6)
+      msgpack (~> 0.4.4)
+    td-logger (0.3.20)
+      fluent-logger (~> 0.4.1)
+      msgpack (= 0.4.7)
+      td-client (~> 0.8.4)
+    timers (1.1.0)
+    yajl-ruby (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rspec
+  td-querier!
