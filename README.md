@@ -42,12 +42,3 @@ Also it uses [td gem](https://rubygems.org/gems/td)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-### Copyright
-
-### Copyright
-
-Copyright (c) 2013- Carlos Donderis (@CaDs)
-
-### License
-
-Apache License, Version 2.0
