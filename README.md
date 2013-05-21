@@ -33,3 +33,21 @@ Once the job has finished sidekiq will stop retriying and will send a callback t
 ###Internals
 Querier objects are designed to query treasure data api asynchronously. This gem uses [Sidekiq] (https://github.com/mperham/sidekiq) so make sure your app plays nice with that.
 Also it uses [td gem](https://rubygems.org/gems/td)
+
+### Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+### Copyright
+
+### Copyright
+
+Copyright (c) 2013- Carlos Donderis (@CaDs)
+
+### License
+
+Apache License, Version 2.0
