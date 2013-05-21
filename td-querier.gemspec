@@ -18,5 +18,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "sidekiq", "~> 2.7.2"
   gem.add_dependency "td", "~> 0.10.73"
-  gem.add_development_dependency "rake", ">= 0.9.2"
+  gem.add_development_dependency "rake"
 end

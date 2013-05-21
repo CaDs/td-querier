@@ -10,9 +10,9 @@ class Querier
     @api_key = api_key
   end
 
-  def query(database, query, redirect_to, opts, priority=1, reschedule_time=5.minutes)
+  def query(database, query, opts, on_demand_path='', priority=1, reschedule_time=5.minutes)
     client = TreasureData::Client.new(@api_key)
-    job = client.query(database, query, redirect_to, priority)
+    job = client.query(database, query, on_demand_path, priority)
     Querier.perform_async(@api_key, job.job_id, opts, reschedule_time)
   end
 
