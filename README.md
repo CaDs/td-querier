@@ -1,8 +1,12 @@
 ## Treasure Data and Sidekiq awesomeness
 
 ###Concept
-Treasure data jobs take sometime to finish, and in most scenarios waiting is not really an option. Td-querier will create a Sidekiq job with the job_id of your Treasure Data Queries and will check if the job has finished.
+Treasure data jobs take sometime to finish, and in most scenarios waiting is not really an option. 
+
+Td-querier will create a Sidekiq job with the job_id of your Treasure Data Queries and will check if the job has finished.
+
 If it is finished, it will send a callback to continue your data process.
+
 If not it will reschedule itself until the job is done.
 
 ###Installation
