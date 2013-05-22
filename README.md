@@ -24,7 +24,7 @@ on_demand_path = 'mysql://user:password@host/database/table' #will insert the re
 priority = 1 #default 1
 reschedule_time #Time interval for checking if the job is finished
 
-querier.query(database_name, query_text, on_demand_path, options, priority, reschedule_time)
+querier.query(database_name, query_text, options, on_demand_path, priority, reschedule_time)
 ```
 
 ###Options
