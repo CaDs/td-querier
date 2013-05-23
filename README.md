@@ -17,14 +17,15 @@ If not it will reschedule itself until the job is done.
 querier = Querier.new("TREASURE_DATA_API_KEY")
 database_name = 'my_td_database_name'
 query_text = 'select count(*) from my_table'
-options = {:klass=>"MyClass", :method=>"my_method", :results => "true"} #See Options section for this one
+options = {:klass => 'MyClass',
+           :method => 'my_method',
+           :results => 'true',
+           :on_demand_path => 'mysql://user:password@host/database/table',
+           :priority => 1,
+           :reschedule_time => 300
+         } #See Options section for this one
 
-#Optional
-on_demand_path = 'mysql://user:password@host/database/table' #will insert the result of your query into another table
-priority = 1 #default 1
-reschedule_time #Time interval for checking if the job is finished
-
-querier.query(database_name, query_text, on_demand_path, options, priority, reschedule_time)
+querier.query(database_name, query_text, options)
 ```
 
 ###Options
@@ -32,7 +33,11 @@ Once the job has finished sidekiq will stop retriying and will send a callback t
 
 * klass: The name of the class you want to use, i.e. "MyClass"
 * method: The name of the class method you want to use, i.e. "my_method"
-* results: if is "true" will fetch the results from treasure data and it will pass those results to your method as a parameter. Be aware that exceptionally large results might impact your performance.
+* results: if is "true" will fetch the results from treasure data and it will pass those results to your method as a 
+parameter. Be aware that exceptionally large results might impact your performance.
+* on_demand_path: will insert the result of your query into another table, i.e: 'mysql://user:password@host/database/table'
+* priority: Treasure data desired priority. By default 1
+* reschedule_time: Time interval for checking if the job is finished and rescheudle sidekiq job. By default 300 seconds
 
 ###Internals
 Querier objects are designed to query treasure data api asynchronously. 

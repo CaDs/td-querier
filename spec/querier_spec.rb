@@ -46,7 +46,7 @@ describe Querier do
   describe "Sidekiq processing" do
     context "Standar processing" do
       before(:each) do
-        @opts = {:klass => "Object", :method => "fake_method", :results => "false"}
+        @opts = {'klass' => "Object", 'method' => "fake_method", 'results' => "false"}
         @fake_job = Object.new
         @fake_client = Object.new
         @fake_client.should_receive(:job).and_return(@fake_job)
@@ -55,7 +55,7 @@ describe Querier do
 
       it "will reschedule the sidekiq job if the treasure data job is not yet finished" do
         @fake_job.should_receive(:finished?).and_return(false)
-        Querier.should_receive(:perform_in).with(300, "apikey", 1, @opts, 300).and_return(true)
+        Querier.should_receive(:perform_in).with(300, "apikey", 1, @opts).and_return(true)
         Querier.new.perform("apikey", 1, @opts)
       end
 
@@ -69,7 +69,7 @@ describe Querier do
         new_opts = {:klass => "Object", :method => "fake_method", :results => "true"}
         results = [[1]]
         @fake_job.should_receive(:finished?).and_return(true)
-        @fake_job.should_receive(:results).and_return(results)
+        @fake_job.should_receive(:result).and_return(results)
         Object.should_receive(:fake_method).and_return(true)
         Querier.new.perform("apikey", 1, new_opts)
       end
@@ -77,14 +77,14 @@ describe Querier do
 
     context "Error case" do
       it "will raise an exception if something explodes within sidekiq" do
-        @opts = {:klass => "Object", :method => "fake_method", :results => "false"}
+        opts = {:klass => "Object", :method => "fake_method", :results => "false"}
         @fake_job = Object.new
         @fake_client = Object.new
         @fake_client.should_receive(:job).and_return(@fake_job)
         TreasureData::Client.should_receive(:new).and_return(@fake_client)
 
         @fake_job.should_receive(:finished?).and_raise(RuntimeError.new("unexpected error"))
-        lambda{Querier.new.perform("apikey", 1, @opts)}.should raise_error(RuntimeError)
+        lambda{Querier.new.perform("apikey", 1, opts)}.should raise_error(RuntimeError)
       end
     end
   end
