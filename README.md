@@ -17,6 +17,7 @@ If not it will reschedule itself until the job is done.
 querier = Querier.new("TREASURE_DATA_API_KEY")
 database_name = 'my_td_database_name'
 query_text = 'select count(*) from my_table'
+
 options = {:klass => 'MyClass',
            :method => 'my_method',
            :results => 'true',
