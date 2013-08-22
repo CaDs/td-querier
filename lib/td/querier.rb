@@ -29,7 +29,7 @@ class Querier
         reschedule_time = (opts && opts['reschedule_time'] != nil && opts['reschedule_time'] != '') ? opts['reschedule_time'].to_i : 300
         return Querier.perform_in(reschedule_time, api_key, job_id, opts)
       end
-    rescue TreasureData::APIError e
+    rescue TreasureData::APIError => e
       puts e.message
       return false
     end
