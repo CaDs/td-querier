@@ -21,12 +21,17 @@ class Querier
   end
 
   def perform(api_key, job_id, opts)
-    client = TreasureData::Client.new(api_key)
-    job = client.job(job_id)
-    #reschedule if the job is not finished
-    unless job.finished?
-      reschedule_time = (opts && opts['reschedule_time'] != nil && opts['reschedule_time'] != '') ? opts['reschedule_time'].to_i : 300
-      return Querier.perform_in(reschedule_time, api_key, job_id, opts)
+    begin
+      client = TreasureData::Client.new(api_key)
+      job = client.job(job_id)
+      #reschedule if the job is not finished
+      unless job.finished?
+        reschedule_time = (opts && opts['reschedule_time'] != nil && opts['reschedule_time'] != '') ? opts['reschedule_time'].to_i : 300
+        return Querier.perform_in(reschedule_time, api_key, job_id, opts)
+      end
+    rescue TreasureData::APIError e
+      puts e.message
+      return false
     end
 
     if opts
