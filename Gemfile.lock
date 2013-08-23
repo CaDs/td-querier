@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    td-querier (0.0.9)
+    td-querier (0.0.10)
       sidekiq (~> 2.7.2)
       td (~> 0.10.73)
 
