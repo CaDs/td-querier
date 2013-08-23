@@ -9,6 +9,7 @@ Gem::Specification.new do |gem|
   gem.version     = File.read("VERSION").strip
   gem.authors     = ["Carlos Donderis"]
   gem.email       = "cdonderis@gmail.com"
+  gem.license     = 'MIT'
   gem.has_rdoc    = false
   #gem.platform    = Gem::Platform::RUBY
   gem.files       = `git ls-files`.split("\n")
