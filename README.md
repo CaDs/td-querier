@@ -1,6 +1,6 @@
 ## Treasure Data and Sidekiq awesomeness
 
-###Concept
+### Concept
 Treasure data jobs take sometime to finish, and in most scenarios waiting is not really an option. 
 
 Td-querier will create a Sidekiq job with the job_id of your Treasure Data Queries and will check if the job has finished.
@@ -9,10 +9,10 @@ If it is finished, it will send a callback to continue your data process.
 
 If not it will reschedule itself until the job is done.
 
-###Installation
+### Installation
     $ gem install td-querier
 
-###Usage
+### Usage
 ```
 querier = Querier.new("TREASURE_DATA_API_KEY")
 database_name = 'my_td_database_name'
@@ -29,7 +29,7 @@ options = {:klass => 'MyClass',
 querier.query(database_name, query_text, options)
 ```
 
-###Options
+### Options
 Once the job has finished sidekiq will stop retriying and will send a callback to a class method specified on the options.
 
 * klass: The name of the class you want to use, i.e. "MyClass"
@@ -40,7 +40,7 @@ parameter. Be aware that exceptionally large results might impact your performan
 * priority: Treasure data desired priority. By default 1
 * reschedule_time: Time interval for checking if the job is finished and rescheudle sidekiq job. By default 300 seconds
 
-###Internals
+### Internals
 Querier objects are designed to query treasure data api asynchronously. 
 
 This gem uses [Sidekiq] (https://github.com/mperham/sidekiq) so make sure your app plays nice with that.
