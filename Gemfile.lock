@@ -18,7 +18,7 @@ GEM
       msgpack (>= 0.4.4, < 0.6.0, != 0.5.3, != 0.5.2, != 0.5.1, != 0.5.0)
       yajl-ruby (~> 1.0)
     hirb (0.7.1)
-    json (1.8.0)
+    json (2.3.1)
     msgpack (0.5.5)
     multi_json (1.7.7)
     parallel (0.6.5)
